@@ -1,0 +1,6 @@
+集成springfox-swagger2
+1、引入swagger及ui
+2、配置SwaggerConfig
+
+集成myabtis-plus
+1、
