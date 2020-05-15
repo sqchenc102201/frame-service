@@ -1,3 +1,5 @@
+https://blog.csdn.net/qq_22075041/article/details/77431915
+
 在启动配置的VM options添加-Dspring.config.location=api-server/conf/application.yml,classpath:common.yml
 
 
