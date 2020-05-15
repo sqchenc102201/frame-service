@@ -1,4 +1,4 @@
-package com.oppo.grs.operation.common.util;
+package com.it.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -8,7 +8,7 @@ import java.net.URL;
 
 /**
  * URL下载文件保存文件工具类
- * @author W9004028 chenshaoqi
+ * @author chenshaoqi
  * @since 2020/05/14
  */
 @Slf4j
