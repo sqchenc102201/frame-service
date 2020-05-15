@@ -1,0 +1,7 @@
+重定向配置文件
+1、在启动配置的VM options添加-Dspring.config.location=api-server/conf/application.yml,classpath:common.yml
+
+
+
+其他工具类
+https://blog.csdn.net/qq_22075041/article/details/77431915

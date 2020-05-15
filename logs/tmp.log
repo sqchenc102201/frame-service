@@ -1,0 +1,51 @@
+17:45:17.340 [main] INFO  com.it.frame.FrameServiceApplication - Starting FrameServiceApplication on PW9004028 with PID 20880 (C:\codespace\frame\frame-service\target\classes started by W9004028 in C:\codespace\frame\frame-service)
+17:45:17.365 [main] DEBUG com.it.frame.FrameServiceApplication - Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+17:45:17.366 [main] INFO  com.it.frame.FrameServiceApplication - The following profiles are active: dev
+17:45:22.243 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+17:45:22.243 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:45:22.243 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+17:45:22.760 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+17:45:24.083 [main] DEBUG springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - initialising the handler methods
+17:45:24.083 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:45:24.219 [main] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+17:45:24.220 [main] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+17:45:24.242 [main] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+17:45:24.248 [main] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+17:45:24.252 [main] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+17:45:24.254 [main] DEBUG org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type org.springframework.validation.beanvalidation.LocalValidatorFactoryBean$1
+17:45:24.257 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+17:45:24.258 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via user class loader
+17:45:24.259 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+17:45:24.260 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+17:45:24.260 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+17:45:24.288 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+17:45:24.289 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+17:45:24.289 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+17:45:24.291 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+17:45:24.292 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+17:45:25.243 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:45:25.359 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Total number of request handlers 6
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/error], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/error], supportedMethods=[], supportedMediaTypes=[], producibleMediaTypes=[]}}
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/error], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/error], supportedMethods=[], supportedMediaTypes=[], producibleMediaTypes=[text/html]}}
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/swagger-resources/configuration/security], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/swagger-resources/configuration/security], supportedMethods=[], supportedMediaTypes=[], producibleMediaTypes=[]}}
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/swagger-resources/configuration/ui], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/swagger-resources/configuration/ui], supportedMethods=[], supportedMediaTypes=[], producibleMediaTypes=[]}}
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/swagger-resources], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/swagger-resources], supportedMethods=[], supportedMediaTypes=[], producibleMediaTypes=[]}}
+17:45:25.428 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Adding key: [/test/hello], WebMvcRequestHandler{key=RequestHandlerKey{pathMappings=[/test/hello], supportedMethods=[GET], supportedMediaTypes=[], producibleMediaTypes=[]}}
+17:45:25.528 [main] DEBUG springfox.documentation.spring.web.plugins.DefaultRequestHandlerCombiner - Combined number of request handlers 6
+17:45:25.528 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:45:25.597 [main] DEBUG springfox.documentation.spring.web.readers.operation.OperationModelsProvider - Adding return parameter of type Ljava/lang/String;
+17:45:25.597 [main] DEBUG springfox.documentation.spring.web.readers.operation.OperationModelsProvider - Reading parameters models for handlerMethod |helloWorld|
+17:45:25.597 [main] DEBUG springfox.documentation.spring.web.readers.operation.OperationModelsProvider - Finished reading parameters models for handlerMethod |helloWorld|
+17:45:25.597 [main] DEBUG springfox.documentation.swagger.readers.operation.SwaggerOperationModelsProvider - Reading parameters models for handlerMethod |helloWorld|
+17:45:25.644 [main] DEBUG springfox.documentation.schema.DefaultModelProvider - Skipping model of type Ljava/lang/String; as its either a container type, map, enum or base type, or its already been handled
+17:45:25.660 [main] DEBUG springfox.documentation.spring.web.scanners.ApiModelReader - Did not find any parameter models for java.lang.String
+17:45:25.660 [main] DEBUG springfox.documentation.schema.DefaultModelDependencyProvider - Marking base type Ljava/lang/String; as seen
+17:45:25.729 [main] DEBUG springfox.documentation.spring.web.readers.operation.OperationResponseClassReader - Setting spring response class to: string
+17:45:25.729 [main] DEBUG springfox.documentation.swagger.readers.operation.VendorExtensionsReader - Extension count 1 for method helloWorld
+17:45:25.729 [main] DEBUG springfox.documentation.swagger.readers.operation.SwaggerOperationResponseClassReader - Setting response class to:string
+17:45:25.798 [main] DEBUG springfox.documentation.swagger.readers.operation.OperationAuthReader - Authorization count 0 for method helloWorld
+17:45:26.046 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+17:45:26.230 [main] INFO  com.it.frame.FrameServiceApplication - Started FrameServiceApplication in 11.846 seconds (JVM running for 27.779)
+17:45:36.289 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:45:36.436 [http-nio-8080-exec-1] DEBUG springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - looking up handler for path: /test/hello

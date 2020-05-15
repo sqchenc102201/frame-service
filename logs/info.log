@@ -1,0 +1,26 @@
+17:42:37.130 [main] INFO  com.it.frame.FrameServiceApplication - Starting FrameServiceApplication on PW9004028 with PID 22324 (C:\codespace\frame\frame-service\target\classes started by W9004028 in C:\codespace\frame\frame-service)
+17:42:37.161 [main] INFO  com.it.frame.FrameServiceApplication - The following profiles are active: dev
+17:42:41.993 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+17:42:41.993 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:42:41.993 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+17:42:42.595 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+17:42:44.400 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:42:45.804 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:42:45.873 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:42:45.973 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:42:46.452 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+17:42:46.575 [main] INFO  com.it.frame.FrameServiceApplication - Started FrameServiceApplication in 12.23 seconds (JVM running for 17.004)
+17:43:58.246 [http-nio-8080-exec-4] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:45:17.340 [main] INFO  com.it.frame.FrameServiceApplication - Starting FrameServiceApplication on PW9004028 with PID 20880 (C:\codespace\frame\frame-service\target\classes started by W9004028 in C:\codespace\frame\frame-service)
+17:45:17.366 [main] INFO  com.it.frame.FrameServiceApplication - The following profiles are active: dev
+17:45:22.243 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+17:45:22.243 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:45:22.243 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+17:45:22.760 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+17:45:24.083 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:45:25.243 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:45:25.359 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:45:25.528 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:45:26.046 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+17:45:26.230 [main] INFO  com.it.frame.FrameServiceApplication - Started FrameServiceApplication in 11.846 seconds (JVM running for 27.779)
+17:45:36.289 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
