@@ -5,3 +5,8 @@
 
 其他工具类
 https://blog.csdn.net/qq_22075041/article/details/77431915
+
+
+windows杀掉端口进程
+netstat -aon|findstr 8080
+taskkill /pid 对于PID -t -f
