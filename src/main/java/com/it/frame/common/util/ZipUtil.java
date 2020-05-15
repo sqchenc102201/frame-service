@@ -1,4 +1,4 @@
-package com.oppo.grs.operation.common.util;
+package com.it.common.util;
 
 import java.io.*;
 import java.util.zip.ZipEntry;
@@ -7,7 +7,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * Zip文件压缩Util
  *
- * @author W9004028 chenshaoqi
+ * @author chenshaoqi
  * @since 2020-05-13
  */
 public class ZipUtil {
