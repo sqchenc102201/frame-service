@@ -1,7 +1,7 @@
-package com.oppo.grs.operation.common.util;
+package com.it.common.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.oppo.grs.operation.common.config.HttpClientConfig;
+import com.it.common.config.HttpClientConfig;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * http工具类
  *
- * @author W9004028 chenshaoqi
+ * @author chenshaoqi
  * @since 2020/05/13
  */
 @Slf4j
