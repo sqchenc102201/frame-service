@@ -1,4 +1,4 @@
-package com.oppo.grs.operation.common.config;
+package com.it.common.config;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.ConnectionPool;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * HttpClientConfig 配置
- * @author W9004028 chenshaoqi
+ * @author chenshaoqi
  * @since 2020/05/13
  */
 @Slf4j
