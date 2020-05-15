@@ -1,4 +1,4 @@
-ÔÚÆô¶¯ÅäÖÃµÄVM optionsÌí¼Ó-Dspring.config.location=api-server/conf/application.yml,classpath:common.yml
+åœ¨å¯åŠ¨é…ç½®çš„VM optionsæ·»åŠ -Dspring.config.location=api-server/conf/application.yml,classpath:common.yml
 
 
 <!-- okhttp3 -->
@@ -15,7 +15,7 @@
 </dependency>
 
 
-<!-- ÒıÈëlog4j2ÒÀÀµ -->
+<!-- å¼•å…¥log4j2ä¾èµ– -->
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-log4j2</artifactId>
@@ -29,7 +29,7 @@ logging:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration monitorInterval="5">
-    <!--ÈÕÖ¾¼¶±ğÒÔ¼°ÓÅÏÈ¼¶ÅÅĞò: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+    <!--æ—¥å¿—çº§åˆ«ä»¥åŠä¼˜å…ˆçº§æ’åº: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
     <Properties>
         <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         <property name="FILE_PATH" value="logs"/>
@@ -118,7 +118,7 @@ public class JsonVO<T> implements Serializable {
     private T data;
 
     /**
-     * ·µ»ØcodeºÍmsg£¬¶ÔÓ¦¹ØÏµ¼û{@link OmsError}
+     * è¿”å›codeå’Œmsgï¼Œå¯¹åº”å…³ç³»è§{@link OmsError}
      */
     public JsonVO(int code, String message) {
         this.code = code;
@@ -127,7 +127,7 @@ public class JsonVO<T> implements Serializable {
     }
 
     /**
-     * ·µ»ØcodeºÍmsg£¬¶ÔÓ¦¹ØÏµ¼û{@link OmsError}£¬°üÀ¨¾ßÌåµÄdata
+     * è¿”å›codeå’Œmsgï¼Œå¯¹åº”å…³ç³»è§{@link OmsError}ï¼ŒåŒ…æ‹¬å…·ä½“çš„data
      */
     public JsonVO(int code, String message, T data) {
         this.code = code;
@@ -136,7 +136,7 @@ public class JsonVO<T> implements Serializable {
     }
 
     /**
-     * Ö»·µ»Ødata£¬Ä¬ÈÏcodeÎªsuccess
+     * åªè¿”å›dataï¼Œé»˜è®¤codeä¸ºsuccess
      */
     public JsonVO(T data) {
         this.code = SUCCESS_CODE;
@@ -145,7 +145,7 @@ public class JsonVO<T> implements Serializable {
     }
 
     /**
-     * ·µ»ØmsgºÍdata£¬Ä¬ÈÏcodeÎªsuccess
+     * è¿”å›msgå’Œdataï¼Œé»˜è®¤codeä¸ºsuccess
      */
     public JsonVO(String message, T data) {
         this.code = SUCCESS_CODE;
@@ -154,7 +154,7 @@ public class JsonVO<T> implements Serializable {
     }
 
     /**
-     * ºÜ¶à·Çget²Ù×÷£¬·µ»ØÒ»¸ö³É¹¦Âë
+     * å¾ˆå¤šégetæ“ä½œï¼Œè¿”å›ä¸€ä¸ªæˆåŠŸç 
      */
     public JsonVO() {
         this.code = SUCCESS_CODE;
@@ -162,4 +162,31 @@ public class JsonVO<T> implements Serializable {
         this.data = null;
     }
 
+}
+
+
+
+import java.util.Objects;
+
+public final class BeanUtil extends org.springframework.beans.BeanUtils {
+
+    /**
+     * é€šè¿‡æ— å‚æ•°å®ä¾‹åŒ–ç›®æ ‡å¯¹è±¡å’Œå¤åˆ¶å±æ€§ï¼Œå°†POJOå¯¹è±¡è½¬æ¢æˆç›¸åº”çš„å¯¹è±¡
+     *
+     * @param source åŸå¯¹è±¡
+     * @param type   ç›®æ ‡ç±»å‹
+     * @return è½¬æ¢åçš„å¯¹è±¡
+     */
+    public static <T> T convert(Object source, Class<T> type) {
+        if (Objects.isNull(source)) {
+            try {
+                return type.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        T target = instantiateClass(type);
+        copyProperties(source, target);
+        return target;
+    }
 }
