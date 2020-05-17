@@ -2,6 +2,12 @@ package com.it.frame.common.exception;
 
 import com.it.frame.common.enums.FrameErrorStatus;
 
+/**
+ * 自定义异常
+ *
+ * @author chenshaoqi
+ * @since 2020/05/14
+ */
 public class FrameException extends Exception {
 
     private Integer code;

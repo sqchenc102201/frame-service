@@ -1,4 +1,4 @@
-package com.it.common.config;
+package com.it.frame.common.config;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.ConnectionPool;
@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * HttpClientConfig 配置
+ *
  * @author chenshaoqi
  * @since 2020/05/13
  */

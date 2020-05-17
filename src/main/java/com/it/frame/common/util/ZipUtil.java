@@ -1,4 +1,4 @@
-package com.it.common.util;
+package com.it.frame.common.util;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

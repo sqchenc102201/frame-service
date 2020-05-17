@@ -1,7 +1,7 @@
 package com.it.frame.common.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.it.common.config.HttpClientConfig;
+import com.it.frame.common.config.HttpClientConfig;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 
@@ -31,20 +31,14 @@ public class HttpUtil {
      */
     public static String getRequest(String url, String path, Map<String, String> params, Map<String, String> headers) {
         log.info("get: url -> {}, path -> {}, params -> {}", url, path, JSONObject.toJSON(params));
-        Request.Builder reqBuild = new Request.Builder();
+        Request.Builder builder = new Request.Builder();
         HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(url + path)).newBuilder();
 
         for (String key : params.keySet()) {
             urlBuilder.addQueryParameter(key, params.get(key));
         }
-        if (headers != null) {
-            for (Map.Entry entry : headers.entrySet()) {
-                reqBuild.addHeader(entry.getKey().toString(), entry.getValue().toString());
-            }
-        }
-        reqBuild.url(urlBuilder.build());
-        Request request = reqBuild.build();
-        Call call = HttpClientConfig.client.newCall(request);
+        builder.url(urlBuilder.build());
+        Call call = getCall(headers, builder);
         String result;
         try (Response response = call.execute()) {
             if (response == null || !response.isSuccessful() || response.body() == null) {
@@ -77,14 +71,7 @@ public class HttpUtil {
         Request.Builder builder = new Request.Builder()
                 .url(url + path)
                 .post(requestBody);
-
-        if (headers != null) {
-            for (Map.Entry entry : headers.entrySet()) {
-                builder.addHeader(entry.getKey().toString(), entry.getValue().toString());
-            }
-        }
-        Request request = builder.build();
-        Call call = HttpClientConfig.client.newCall(request);
+        Call call = getCall(headers, builder);
         String result;
         try (Response response = call.execute()) {
             if (response == null || !response.isSuccessful() || response.body() == null) {
@@ -116,14 +103,7 @@ public class HttpUtil {
         Request.Builder builder = new Request.Builder()
                 .url(url + path)
                 .post(builder1.build());
-
-        if (headers != null) {
-            for (Map.Entry entry : headers.entrySet()) {
-                builder.addHeader(entry.getKey().toString(), entry.getValue().toString());
-            }
-        }
-        Request request = builder.build();
-        Call call = HttpClientConfig.client.newCall(request);
+        Call call = getCall(headers, builder);
         String result;
         try (Response response = call.execute()) {
             if (response == null || !response.isSuccessful() || response.body() == null) {
@@ -137,6 +117,16 @@ public class HttpUtil {
         }
         log.info("result -> {}", result);
         return result;
+    }
+
+    private static Call getCall(Map<String, String> headers, Request.Builder builder) {
+        if (headers != null) {
+            for (Map.Entry entry : headers.entrySet()) {
+                builder.addHeader(entry.getKey().toString(), entry.getValue().toString());
+            }
+        }
+        Request request = builder.build();
+        return HttpClientConfig.client.newCall(request);
     }
 
 }
