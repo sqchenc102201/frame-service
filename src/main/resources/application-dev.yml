@@ -3,5 +3,13 @@ server:
   servlet:
     context-path: /api
 
+spring:
+  datasource:
+    username: root
+    password: ttxs@1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.245.130:3306/frame?useUnicode=true&characterEncoding=utf8
+
 swagger:
   open: true
+

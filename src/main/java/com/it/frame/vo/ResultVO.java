@@ -16,6 +16,18 @@ public class ResultVO<T> {
     // 响应中的数据
     private T data;
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
     public ResultVO(T data) {
         this.status = 200;
         this.message = "success";

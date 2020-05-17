@@ -3,4 +3,7 @@
 2、配置SwaggerConfig
 
 集成myabtis-plus
-1、
+1、引入mybatis-plus-boot-starter
+2、引入mysql-connector-java
+3、配置mysql和mybatis-plus配置信息
+4、spring boot项目中添加mybatis的包扫描路径，或@Mapper注解
