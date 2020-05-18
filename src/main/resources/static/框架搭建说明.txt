@@ -1,3 +1,16 @@
+整合spring-boot-starter-quartz
+1、引入quartz包
+2、建立Job实现QuartzJobBean
+3、创建QuartzConfig
+
+
+整合spring-boot定时任务Scheduled
+1、在启动类中添加@EnableScheduling
+2、创建定时任务定义类@Component
+3、定义定时任务
+注意单线程：https://blog.csdn.net/zhaominpro/article/details/84561966
+
+
 整合springfox-swagger2
 1、引入swagger及ui
 2、配置SwaggerConfig
@@ -10,11 +23,5 @@
 3、配置mysql和mybatis-plus配置信息
 4、spring boot项目中添加mybatis的包扫描路径，或@Mapper注解
 
-
-整合定时任务Scheduled
-1、在启动类中添加@EnableScheduling
-2、创建定时任务定义类@Component
-3、定义定时任务
-注意单线程：https://blog.csdn.net/zhaominpro/article/details/84561966
 
 

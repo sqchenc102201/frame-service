@@ -1,10 +1,7 @@
-package com.it.frame.common.task;
+package com.it.frame.common.scheduled;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * ScheduledTask 定义类
@@ -18,7 +15,14 @@ import java.util.concurrent.Executors;
  */
 @Component
 public class ScheduledTask {
-    private ExecutorService service = Executors.newFixedThreadPool(10);
+
+    @Scheduled(cron = "0/1 * * * * ? ")
+    public void scheduledTask() {
+        System.out.println("ScheduledTask任务执行");
+    }
+
+
+//    private ExecutorService service = Executors.newFixedThreadPool(10);
 
 //    @Scheduled(initialDelay = 1000 * 10, fixedDelay = 1000 * 5)
 //    @Scheduled(cron = "5 0 0 * * ?")
@@ -29,9 +33,14 @@ public class ScheduledTask {
 //            });
 //    }
 
-    @Scheduled(cron = "10 * * * * ? ")
+    @Scheduled(cron = "5 * * * * ? ")
     public void scheduledTask2() {
-        service.execute(() -> System.out.println("Scheduled任务2执行"));
+        System.out.println("Scheduled任务2执行");
+        try {
+            Thread.sleep(1000 * 5);//改成异步执行后，就算你再耗时也不会印象到后续任务的定时调度了
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 //
 //    @Scheduled(cron = "0/2 * * * * ? ")
