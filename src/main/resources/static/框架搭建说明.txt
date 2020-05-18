@@ -1,9 +1,17 @@
-集成springfox-swagger2
+整合springfox-swagger2
 1、引入swagger及ui
 2、配置SwaggerConfig
+3、访问http://localhost:8080/api/swagger-ui.html
 
-集成myabtis-plus
+
+整合myabtis-plus
 1、引入mybatis-plus-boot-starter
 2、引入mysql-connector-java
 3、配置mysql和mybatis-plus配置信息
 4、spring boot项目中添加mybatis的包扫描路径，或@Mapper注解
+
+
+整合定时任务Scheduled
+1、在启动类中添加@EnableScheduling
+2、创建定时任务定义类@Component
+3、定义定时任务
