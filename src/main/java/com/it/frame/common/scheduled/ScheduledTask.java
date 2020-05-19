@@ -33,15 +33,15 @@ public class ScheduledTask {
 //            });
 //    }
 
-    @Scheduled(cron = "5 * * * * ? ")
-    public void scheduledTask2() {
-        System.out.println("Scheduled任务2执行");
-        try {
-            Thread.sleep(1000 * 5);//改成异步执行后，就算你再耗时也不会印象到后续任务的定时调度了
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    @Scheduled(cron = "5 * * * * ? ")
+//    public void scheduledTask2() {
+//        System.out.println("Scheduled任务2执行");
+//        try {
+//            Thread.sleep(1000 * 5);//改成异步执行后，就算你再耗时也不会印象到后续任务的定时调度了
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 //
 //    @Scheduled(cron = "0/2 * * * * ? ")
 //    public void scheduledTask3() {

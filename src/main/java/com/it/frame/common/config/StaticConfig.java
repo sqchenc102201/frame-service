@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class StaticConfig {
 
-    @Value("file.upload-path")
+    @Value("${file.upload-path}")
     private String uploadPath;
 
 }

@@ -3,7 +3,7 @@ spring:
     username: root
     password: ttxs@1234
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.245.130:3306/frame?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://192.168.245.131:3306/frame?useUnicode=true&characterEncoding=utf8
 
 swagger:
   open: true

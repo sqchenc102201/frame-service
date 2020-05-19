@@ -8,4 +8,4 @@ server:
     context-path: /api
 
 file:
-  upload-path: /uploads/frame/upload/
+  upload-path: D:\temp\upload\
