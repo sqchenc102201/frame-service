@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTask {
 
-    @Scheduled(cron = "0/1 * * * * ? ")
-    public void scheduledTask() {
-        System.out.println("ScheduledTask任务执行");
-    }
+//    @Scheduled(cron = "0/1 * * * * ? ")
+//    public void scheduledTask() {
+//        System.out.println("ScheduledTask任务执行");
+//    }
 
 
 //    private ExecutorService service = Executors.newFixedThreadPool(10);
