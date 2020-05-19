@@ -1,3 +1,11 @@
 spring:
   profiles:
     active: @profileActive@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+file:
+  upload-path: /uploads/frame/upload/

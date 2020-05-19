@@ -1,7 +1,7 @@
 package com.it.frame.controller.test;
 
 import com.it.frame.service.test.TestService;
-import com.it.frame.vo.ResultVO;
+import com.it.frame.vo.common.ResultVO;
 import com.it.frame.vo.test.TestVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

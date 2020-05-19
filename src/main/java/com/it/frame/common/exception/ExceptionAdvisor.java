@@ -1,6 +1,6 @@
 package com.it.frame.common.exception;
 
-import com.it.frame.vo.ResultVO;
+import com.it.frame.vo.common.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,8 +23,8 @@ public class ExceptionAdvisor {
     @ExceptionHandler(value = Exception.class)
     public ResultVO handle(Exception e) {
         // 自定义异常编码 + 自定义统一提醒
-        if (e instanceof FrameException) {
-            FrameException exception = (FrameException) e;
+        if (e instanceof CustomException) {
+            CustomException exception = (CustomException) e;
             Integer code = HttpStatus.INTERNAL_SERVER_ERROR.value();
             if (exception.getCode() != null && exception.getCode() != 0) {
                 code = exception.getCode();
