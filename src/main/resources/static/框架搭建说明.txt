@@ -15,6 +15,7 @@
 1、引入swagger及ui
 2、配置SwaggerConfig
 3、访问http://localhost:8080/api/swagger-ui.html
+4、添加doc.html  引入swagger-bootstrap-ui，在swagger配置文件中添加@EnableSwaggerBootstrapUI
 
 
 整合myabtis-plus
