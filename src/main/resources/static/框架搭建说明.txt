@@ -32,5 +32,5 @@ https://www.jianshu.com/p/75208a68c3b9
 整合easyexcel
 1、引入jar包
 2、配置ExcelUtil类
-3、使用指导https://alibaba-easyexcel.github.io/
+3、使用指导https://www.yuque.com/easyexcel/doc/easyexcel
 4、使用代码https://github.com/alibaba/easyexcel

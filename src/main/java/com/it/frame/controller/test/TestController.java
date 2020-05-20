@@ -1,5 +1,6 @@
 package com.it.frame.controller.test;
 
+import com.alibaba.excel.EasyExcel;
 import com.it.frame.common.util.ExcelUtil;
 import com.it.frame.service.test.TestService;
 import com.it.frame.vo.common.ResultVO;
@@ -11,7 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Api(value = "测试")
@@ -58,6 +63,37 @@ public class TestController {
             System.out.println(tt.getCreated());
         });
         return "success";
+    }
+
+    /**
+     * 文件下载（失败了会返回一个有部分数据的Excel）
+     * <p>1. 创建excel对应的实体对象 参照{@link TestExcelVO}
+     * <p>2. 设置返回的 参数
+     * <p>3. 直接写，这里注意，finish的时候会自动关闭OutputStream,当然你外面再关闭流问题不大
+     */
+    @GetMapping("/export")
+    public void download(HttpServletResponse response) throws IOException {
+        // 这里注意 有同学反应使用swagger 会导致各种问题，请直接用浏览器或者用postman
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf-8");
+        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+        String fileName = URLEncoder.encode("测试", "UTF-8");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+        EasyExcel.write(response.getOutputStream(), TestExcelVO.class).sheet("模板").doWrite(data());
+    }
+
+    private List<TestExcelVO> data() {
+        List<TestExcelVO> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            TestExcelVO data = new TestExcelVO();
+            data.setAccount("W900400" + i);
+            data.setName("Name" + i);
+            data.setAge(i+10);
+            data.setCreated(new Date());
+            data.setScore(90d + i);
+            list.add(data);
+        }
+        return list;
     }
 
 }
