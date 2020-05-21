@@ -66,12 +66,13 @@ public class TestController {
     }
 
     /**
-     * 文件下载（失败了会返回一个有部分数据的Excel）
+     * 数据导出（失败了会返回一个有部分数据的Excel）
      * <p>1. 创建excel对应的实体对象 参照{@link TestExcelVO}
      * <p>2. 设置返回的 参数
      * <p>3. 直接写，这里注意，finish的时候会自动关闭OutputStream,当然你外面再关闭流问题不大
      */
     @GetMapping("/export")
+    @ApiOperation("直接按对象导出")
     public void download(HttpServletResponse response) throws IOException {
         // 这里注意 有同学反应使用swagger 会导致各种问题，请直接用浏览器或者用postman
         response.setContentType("application/vnd.ms-excel");
@@ -80,6 +81,26 @@ public class TestController {
         String fileName = URLEncoder.encode("测试", "UTF-8");
         response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
         EasyExcel.write(response.getOutputStream(), TestExcelVO.class).sheet("模板").doWrite(data());
+    }
+
+    @ApiOperation("按模板写入")
+    @GetMapping("/export/template/write")
+    public void templateWrite() {
+        String templateFileName = TestController.class.getResource("/").getPath() + "templates/exportTemplate.xlsx";
+        String fileName = "export.xlsx";
+        EasyExcel.write(fileName, TestExcelVO.class).withTemplate(templateFileName).sheet().doWrite(data());
+    }
+
+    @ApiOperation("按模板填充")
+    @GetMapping("/export/template/fill")
+    public void exportByTemplate(HttpServletResponse response) throws IOException {
+        String fileName = "按模板填充" + System.currentTimeMillis() + ".xlsx";
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("application/vnd.ms-excel;charset=utf-8");
+        response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
+        String templateFileName = TestController.class.getResource("/").getPath() + "templates/templateFill.xlsx";
+//        EasyExcel.write(fileName).withTemplate(templateFileName).sheet().doFill(data());
+        EasyExcel.write(response.getOutputStream()).withTemplate(templateFileName).sheet().doFill(data());
     }
 
     private List<TestExcelVO> data() {
