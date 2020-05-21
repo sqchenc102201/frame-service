@@ -1,6 +1,8 @@
 package com.it.frame.controller.common;
 
+import com.it.frame.common.annotation.Permission;
 import com.it.frame.common.enums.FrameErrorStatus;
+import com.it.frame.common.enums.PermissionEnum;
 import com.it.frame.common.exception.CustomException;
 import com.it.frame.service.common.FileService;
 import com.it.frame.vo.common.FileVO;
@@ -34,6 +36,7 @@ import java.net.URLEncoder;
 @Slf4j
 @RestController
 @RequestMapping("/file")
+@Permission(type = PermissionEnum.FILE_UPLOAD)
 public class FileController {
 
     @Resource

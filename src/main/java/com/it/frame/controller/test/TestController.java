@@ -39,6 +39,7 @@ public class TestController {
 
     @PostMapping("/user")
     @ApiOperation("测试获取用户列表")
+    @Permission(type = PermissionEnum.TEST_EDIT)
     public ResultVO<List<TestVO>> queryTestUserList(TestVO param) {
         return new ResultVO<>(testService.queryTestUserList(param));
     }
