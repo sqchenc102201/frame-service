@@ -1,6 +1,8 @@
 package com.it.frame.controller.test;
 
 import com.alibaba.excel.EasyExcel;
+import com.it.frame.common.enums.PermissionEnum;
+import com.it.frame.common.annotation.Permission;
 import com.it.frame.common.util.ExcelUtil;
 import com.it.frame.service.test.TestService;
 import com.it.frame.vo.common.ResultVO;
@@ -22,6 +24,7 @@ import java.util.List;
 @Api(value = "测试")
 @RestController
 @RequestMapping("/test")
+@Permission(type = PermissionEnum.TEST)
 public class TestController {
 
     @Resource
@@ -29,6 +32,7 @@ public class TestController {
 
     @GetMapping("/hello")
     @ApiOperation("测试hello接口")
+    @Permission(type = PermissionEnum.TEST_ADD)
     public String helloWorld() {
         return "hello world";
     }
