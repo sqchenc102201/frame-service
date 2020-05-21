@@ -101,6 +101,8 @@ public class TestController {
         String templateFileName = TestController.class.getResource("/").getPath() + "templates/templateFill.xlsx";
 //        EasyExcel.write(fileName).withTemplate(templateFileName).sheet().doFill(data());
         EasyExcel.write(response.getOutputStream()).withTemplate(templateFileName).sheet().doFill(data());
+        // 导出空模板
+//        EasyExcel.write(response.getOutputStream()).withTemplate(templateFileName).sheet().doFill(new ArrayList<>());
     }
 
     private List<TestExcelVO> data() {
