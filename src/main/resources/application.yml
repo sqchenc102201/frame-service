@@ -2,10 +2,17 @@ spring:
   profiles:
     active: @profileActive@
 
+  redis:
+    host: 192.168.245.132
+    port: 6379
+    password: 123456
+
+
 server:
   port: 8080
   servlet:
     context-path: /api
+
 
 file:
   upload-path: D:\temp\upload\

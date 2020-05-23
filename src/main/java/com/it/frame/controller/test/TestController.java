@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.it.frame.common.enums.PermissionEnum;
 import com.it.frame.common.annotation.Permission;
 import com.it.frame.common.util.ExcelUtil;
+import com.it.frame.common.util.RedisUtil;
 import com.it.frame.service.test.TestService;
 import com.it.frame.vo.common.ResultVO;
 import com.it.frame.vo.test.TestExcelVO;
@@ -122,6 +123,14 @@ public class TestController {
             list.add(data);
         }
         return list;
+    }
+
+    @GetMapping("/redis")
+    @ApiOperation("测试redis接口")
+    @Permission(type = PermissionEnum.TEST_ADD)
+    public String testRedis() {
+
+        return "hello world";
     }
 
 }

@@ -1,3 +1,20 @@
+整合Redis
+1、引入依赖包
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+2、Redis配置
+# Redis数据库索引（默认为0）
+spring.redis.database=0
+# Redis服务器地址
+spring.redis.host=192.168.0.24
+# Redis服务器连接端口
+spring.redis.port=6379
+# Redis服务器连接密码（默认为空）
+spring.redis.password=
+
+
 整合spring-boot-starter-quartz
 1、引入quartz包
 2、建立Job实现QuartzJobBean
