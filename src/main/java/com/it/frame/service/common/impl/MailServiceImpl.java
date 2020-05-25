@@ -24,27 +24,27 @@ public class MailServiceImpl implements MailService {
 //    @Value("${mail.username}")
 //    private String username;
 
-    @Resource
-    private JavaMailSender javaMailSender;
+//    @Resource
+//    private JavaMailSender javaMailSender;
 
-    @Async
-    @Override
-    public void syncSendMail(String subject, String content, String... to) {
-        if (StringUtils.isEmpty(subject) || StringUtils.isEmpty(content) || null == to) {
-            return;
-        }
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom("username");
-        simpleMailMessage.setTo(to);
-        simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(content);
-        try {
-            javaMailSender.send(simpleMailMessage);
-            log.info("成功发送邮件到 {} ", Arrays.toString(to));
-        } catch (MailException e) {
-            log.error("发送邮件到 {} 失败，异常为：",  Arrays.toString(to), e);
-        }
-    }
+//    @Async
+//    @Override
+//    public void syncSendMail(String subject, String content, String... to) {
+//        if (StringUtils.isEmpty(subject) || StringUtils.isEmpty(content) || null == to) {
+//            return;
+//        }
+//        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+//        simpleMailMessage.setFrom("username");
+//        simpleMailMessage.setTo(to);
+//        simpleMailMessage.setSubject(subject);
+//        simpleMailMessage.setText(content);
+//        try {
+//            javaMailSender.send(simpleMailMessage);
+//            log.info("成功发送邮件到 {} ", Arrays.toString(to));
+//        } catch (MailException e) {
+//            log.error("发送邮件到 {} 失败，异常为：",  Arrays.toString(to), e);
+//        }
+//    }
 
 //    import javax.mail.internet.MimeMessage;
 //    @Async

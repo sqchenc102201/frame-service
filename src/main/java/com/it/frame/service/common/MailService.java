@@ -10,14 +10,14 @@ import java.io.File;
  */
 public interface MailService {
 
-    /**
-     * 异步发送邮件
-     *
-     * @param to      收件人（多人）
-     * @param subject 主题
-     * @param content 内容
-     */
-    void syncSendMail(String subject, String content, String... to);
+//    /**
+//     * 异步发送邮件
+//     *
+//     * @param to      收件人（多人）
+//     * @param subject 主题
+//     * @param content 内容
+//     */
+//    void syncSendMail(String subject, String content, String... to);
 
 //    /**
 //     * 异步发送带附件的邮件

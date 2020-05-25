@@ -3,7 +3,7 @@ spring:
     active: @profileActive@
 
   redis:
-    host: 192.168.245.132
+    host: 192.168.245.133
     port: 6379
     password: 123456
     timeout: 3000ms

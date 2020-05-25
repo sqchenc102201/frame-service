@@ -1,8 +1,10 @@
 package com.it.frame.controller.test;
 
 import com.alibaba.excel.EasyExcel;
+import com.it.frame.common.annotation.Resubmit;
 import com.it.frame.common.enums.PermissionEnum;
 import com.it.frame.common.annotation.Permission;
+import com.it.frame.common.exception.CustomException;
 import com.it.frame.common.util.ExcelUtil;
 import com.it.frame.common.util.RedisUtil;
 import com.it.frame.service.test.TestService;
@@ -131,6 +133,13 @@ public class TestController {
     public String testRedis() {
 
         return "hello world";
+    }
+
+    @Resubmit
+    @GetMapping("/resubmit")
+    @ApiOperation("测试重复提交接口")
+    public String testResubmit(TestVO param) throws CustomException {
+        return "test resubmit success";
     }
 
 }

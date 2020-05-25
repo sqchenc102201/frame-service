@@ -10,6 +10,7 @@ package com.it.frame.common.enums;
 public enum FrameErrorStatus {
 
     RESUBMIT(10010, "重复提交"),
+    TARGET_METHOD(10011, "目标方法执行失败"),
     FILE_IO_ERROR(50001, "文件读取或输出异常");
 
 

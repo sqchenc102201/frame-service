@@ -29,7 +29,7 @@ public class ExceptionAdvisor {
             if (exception.getCode() != null && exception.getCode() != 0) {
                 code = exception.getCode();
             }
-            log.warn(exception.getMessage(), e);
+            log.warn(exception.getMsg(), e);
             return new ResultVO<>(code, exception.getMsg());
         }
         // 异常编码 + 统一提醒
