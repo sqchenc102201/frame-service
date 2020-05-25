@@ -9,7 +9,9 @@ package com.it.frame.common.enums;
  */
 public enum FrameErrorStatus {
 
+    RESUBMIT(10010, "重复提交"),
     FILE_IO_ERROR(50001, "文件读取或输出异常");
+
 
     private Integer code;
     private String msg;

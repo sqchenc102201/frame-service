@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * 权限定义接口
+ * 权限验证注解定义
  *
  * @author chenshaoqi
  * @since 2020/5/21

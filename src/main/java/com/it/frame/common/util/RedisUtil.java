@@ -4,6 +4,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * redisTemplate封装
@@ -58,6 +59,28 @@ public class RedisUtil {
             return false;
         }
     }
+
+    /**
+     * 如果键不存在则新增,存在则不改变已经有的值。
+     * @param key key
+     * @param value value
+     * @param timeout 到期时间 毫秒
+     * @return true：不存在  false：已存在
+     */
+    public boolean setIfAbsent(final String key, Object value, Long timeout) {
+        boolean result = false;
+        try {
+            if (!redisTemplate.opsForValue().setIfAbsent(key, value.toString())) {
+                return false;
+            }
+            redisTemplate.expire(key, timeout, TimeUnit.MILLISECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
 
 
