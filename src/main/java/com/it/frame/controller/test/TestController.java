@@ -31,6 +31,9 @@ import java.util.List;
 public class TestController {
 
     @Resource
+    private RedisUtil redisUtil;
+
+    @Resource
     private TestService testService;
 
     @GetMapping("/hello")
@@ -130,8 +133,8 @@ public class TestController {
     @GetMapping("/redis")
     @ApiOperation("测试redis接口")
     @Permission(type = PermissionEnum.TEST_ADD)
-    public String testRedis() {
-
+    public String testRedis(@RequestParam String key) {
+        redisUtil.set(key, key + "test", 1000);
         return "hello world";
     }
 
