@@ -1,6 +1,6 @@
 package com.it.frame.common.scheduled;
 
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  * @since 2020/5/18
  */
 @Component
+@EnableAsync  // 开启多线程 方法上添加@Async
 public class ScheduledTask {
 
 //    @Scheduled(cron = "0/1 * * * * ? ")
