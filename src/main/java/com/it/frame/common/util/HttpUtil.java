@@ -5,8 +5,10 @@ import com.it.frame.common.config.HttpClientConfig;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 
+import java.io.File;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * http工具类
@@ -17,8 +19,9 @@ import java.util.Objects;
 @Slf4j
 public class HttpUtil {
 
-    private static final int PRINT_SIZE = 5000;
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final MediaType MULTIPART = MediaType.parse("multipart/form-data");
+
 
     /**
      * GET请求 map格式参数
@@ -39,21 +42,7 @@ public class HttpUtil {
         }
         builder.url(urlBuilder.build());
         Call call = getCall(headers, builder);
-        String result;
-        try (Response response = call.execute()) {
-            if (response == null || !response.isSuccessful() || response.body() == null) {
-                log.error("网络请求异常");
-                return null;
-            }
-            result = response.body().string();
-        } catch (Exception e) {
-            log.error("get error", e);
-            return null;
-        }
-        if (result.length() < PRINT_SIZE) {
-            log.info(result);
-        }
-        return result;
+        return callExecute(call);
     }
 
     /**
@@ -72,19 +61,7 @@ public class HttpUtil {
                 .url(url + path)
                 .post(requestBody);
         Call call = getCall(headers, builder);
-        String result;
-        try (Response response = call.execute()) {
-            if (response == null || !response.isSuccessful() || response.body() == null) {
-                log.error("网络请求异常");
-                return null;
-            }
-            result = response.body().string();
-        } catch (Exception e) {
-            log.error("post(json) error", e);
-            return null;
-        }
-        log.info("result -> {}", result);
-        return result;
+        return callExecute(call);
     }
 
     /**
@@ -104,6 +81,71 @@ public class HttpUtil {
                 .url(url + path)
                 .post(builder1.build());
         Call call = getCall(headers, builder);
+        return callExecute(call);
+    }
+
+    /**
+     * 上传文件
+     *
+     * @param url      上传目标地址
+     * @param filePath 上传文件原路径
+     * @param fileName 文件名
+     * @return 请求信息
+     */
+    public static String uploadFile(String url, String filePath, String fileName) {
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("file", fileName, RequestBody.create(MULTIPART, new File(filePath)))
+                .build();
+
+        Request request = new Request.Builder()
+                .header("Authorization", "Client-ID " + UUID.randomUUID())
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        Call call = HttpClientConfig.client.newCall(request);
+        return callExecute(call);
+    }
+
+    /**
+     * 上传文件
+     *
+     * @param url      上传目标地址
+     * @param filePath 上传文件原路径
+     * @param fileName 文件名
+     * @param params   params
+     * @param headers  headers
+     * @return 请求信息
+     */
+    public static String uploadFile(String url, String filePath, String fileName,
+                                    Map<String, String> params, Map<String, String> headers) {
+        MultipartBody.Builder mulBuilder = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("file", fileName, RequestBody.create(MULTIPART, new File(filePath)));
+
+        if (null != params) {
+            for (String key : params.keySet()) {
+                mulBuilder.addFormDataPart(key, params.get(key));
+            }
+        }
+        RequestBody requestBody = mulBuilder.build();
+
+        Request.Builder builder = new Request.Builder()
+                .url(url)
+                .post(requestBody);
+
+        if (headers != null) {
+            for (Map.Entry entry : headers.entrySet()) {
+                builder.addHeader(entry.getKey().toString(), entry.getValue().toString());
+            }
+        }
+        Request request = builder.build();
+        Call call = HttpClientConfig.client.newCall(request);
+        return callExecute(call);
+    }
+
+    private static String callExecute(Call call) {
         String result;
         try (Response response = call.execute()) {
             if (response == null || !response.isSuccessful() || response.body() == null) {
