@@ -1,7 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
 spring:
   profiles:
     active: @profileActive@
-
+  # 请求和文件上传大小限制
+  servlet:
+      multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
+  # redis
   redis:
     host: 192.168.245.135
     port: 6379
@@ -9,10 +19,7 @@ spring:
     timeout: 3000ms
 
 
-server:
-  port: 8080
-  servlet:
-    context-path: /api
+
 
 
 file:
