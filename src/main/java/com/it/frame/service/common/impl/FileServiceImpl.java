@@ -47,7 +47,7 @@ public class FileServiceImpl implements FileService {
             byte[] fileBytes = file.getBytes();
             int fileSize = fileBytes.length;
             String uuid = UUID.randomUUID().toString();
-            String uploadPath = this.getUploadPathAndCreate(uuid);
+            String uploadPath = this.getUploadPathAndCreate(uuid, fileName);
             // 保存上传文件信息
             FilePO filePO = new FilePO();
             filePO.setUuid(uuid);
@@ -95,16 +95,24 @@ public class FileServiceImpl implements FileService {
     }
 
     /**
-     * 创建并返回上传路径
+     * 创建空文件并返回文件路径
      * @param uuid UUID
      * @return  保存文件路径
      * @throws IOException 创建文件异常
      */
-    private String getUploadPathAndCreate(String uuid) throws IOException {
-        String uploadPath = staticConfig.getUploadPath() + uuid;
+    private String getUploadPathAndCreate(String uuid, String fileName) throws IOException {
+        String uploadDir = staticConfig.getUploadPath() + uuid;
+        File uploadFile = new File(uploadDir);
+        boolean makeFlag = uploadFile.mkdir();
+        if (!makeFlag) {
+            log.error("创建上传文件目录失败:" + uploadDir);
+            return null;
+        }
+        String uploadPath = uploadDir + File.separator + fileName;
         boolean created = new File(uploadPath).createNewFile();
         if (!created) {
-            uploadPath = null;
+            log.error("创建上传文件失败:" + uploadPath);
+            return null;
         }
         return uploadPath;
     }
